@@ -1,7 +1,10 @@
 {
   "name": "pong",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "dev": "pnpm webpack -w",
+    "build": "tsc"
+  },
   "author": "Gabriel Silva <gabriel.silva1@aluno.ifsertao-pe.edu.br>",
   "license": "MIT",
   "devDependencies": {
@@ -13,6 +16,10 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "ts-loader": "^9.3.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   }
 }
