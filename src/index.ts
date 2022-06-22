@@ -26,12 +26,12 @@ const main = () => {
   update()
   ball.move(player1, player2)
 
-  if (ball.posX < -100) {
+  if (ball.posX < -10) {
     ball.posX = center().X - 10
     ball.posY = center().Y - 10
     ball.dir = 1
     player2.score += 1
-  } else if (ball.posX > canvas.width + 100) {
+  } else if (ball.posX > canvas.width + 10) {
     ball.posX = center().X - 10
     ball.posY = center().Y - 10
     ball.dir = -1
