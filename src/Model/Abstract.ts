@@ -1,4 +1,5 @@
-import context, { canvas } from '../utils/canvas'
+import context from '../utils/canvas'
+import Player from './Player'
 
 class Abstract {
   public posX: number
@@ -25,12 +26,21 @@ class Abstract {
 
   public fillText(): void {}
 
-  public move(x?: number, y?: number): void {
-    if (this.posX >= canvas.width - 80) this.dir = -1
-    else if (this.posX <= 80) this.dir = 1
+  public move(player1: Player, player2: Player): void {
+    if (
+      this.posY + this.height > player1.posY &&
+      this.posY < player1.posY + player1.height &&
+      this.posX < player1.posX + player1.width
+    )
+      this.dir *= -1
+    else if (
+      this.posY + this.height > player2.posY &&
+      this.posY < player2.posY + player2.height &&
+      this.posX > player2.posX - player2.width
+    )
+      this.dir *= -1
 
-    if (x) this.posX += x * this.dir
-    if (y) this.posY += y * this.dir
+    this.posX += 1 * this.dir
   }
 }
 

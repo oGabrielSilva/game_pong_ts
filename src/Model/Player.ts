@@ -30,10 +30,12 @@ class Player extends Abstract {
 
   public move(): void {
     if (this.isPlayer2) {
-      if (keyboard.right) this.posY += this.velocity
-      else if (keyboard.left) this.posY += this.velocity * -1
-    } else if (keyboard.d) this.posY += this.velocity * -1
-    else if (keyboard.a) this.posY += this.velocity * -1
+      if (keyboard.right && this.posY < canvas.height - this.height)
+        this.posY += this.velocity
+      else if (keyboard.left && this.posY > 0) this.posY += this.velocity * -1
+    } else if (keyboard.d && this.posY < canvas.height - this.height)
+      this.posY += this.velocity
+    else if (keyboard.a && this.posY > 0) this.posY += this.velocity * -1
   }
 
   public update(): void {

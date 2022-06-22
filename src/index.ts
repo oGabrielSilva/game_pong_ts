@@ -24,7 +24,19 @@ const update = () => {
 const main = () => {
   context.clearRect(0, 0, canvas.width, canvas.height)
   update()
-  ball.move(3)
+  ball.move(player1, player2)
+
+  if (ball.posX < -100) {
+    ball.posX = center().X - 10
+    ball.posY = center().Y - 10
+    ball.dir = 1
+    player2.score += 1
+  } else if (ball.posX > canvas.width + 100) {
+    ball.posX = center().X - 10
+    ball.posY = center().Y - 10
+    ball.dir = -1
+    player1.score += 1
+  }
 }
 
-setInterval(main, 10)
+setInterval(main, 1)
